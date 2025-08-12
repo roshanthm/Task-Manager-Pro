@@ -17,23 +17,7 @@ A simple, elegant, and powerful web-based task manager to help you stay organize
 
 ---
 
-## 🚀 How to Run Locally
 
-This project is a static web application, which means you don't need a backend server to run it.
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/task-manager-pro.git](https://github.com/your-username/task-manager-pro.git)
-    ```
-2.  **Navigate to the project directory:**
-    ```bash
-    cd task-manager-pro
-    ```
-3.  **Open `index.html`:** Simply open the `index.html` file in your favorite web browser (e.g., Chrome, Firefox, Safari).
-
-That's it! The application will load and be ready to use.
-
----
 
 ## 🛠️ Technologies Used
 
