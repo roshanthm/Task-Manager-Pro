@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roshan Thomas - Task Manager Pro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+  <div class="min-h-screen flex flex-col">
+    <header class="gradient-bg text-white py-6 shadow-lg">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <h1 class="text-3xl font-bold tracking-tight">
+            <i class="fas fa-tasks mr-2"></i> Task Manager Pro
+          </h1>
+          <a href="https://github.com/roshanthm" target="_blank" class="ml-4 text-white hover:text-blue-200 transition">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+          <button id="darkModeToggle" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition">
+            <i class="fas fa-moon text-white"></i>
+          </button>
+        </div>
+        <p class="mt-2 opacity-90">By <a href="https://github.com/roshanthm" target="_blank" class="hover:underline">Roshan Thomas</a></p>
+      </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8 transition-all duration-300">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
+            <i class="fas fa-plus-circle mr-2 text-blue-500"></i> Add New Task
+          </h2>
+          
+          <div class="space-y-4">
+            <div>
+              <label for="taskName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Task Name</label>
+              <input type="text" id="taskName" placeholder="What needs to be done?" 
+                     class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="priority" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Priority</label>
+                <select id="priority" class="form-select w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                  <option value="Low">Low Priority</option>
+                  <option value="Medium" selected>Medium Priority</option>
+                  <option value="High">High Priority</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="deadline" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Deadline</label>
+                <input type="datetime-local" id="deadline" 
+                       class="form-input w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+              </div>
+            </div>
+            
+            <div class="checkbox-container">
+              <input type="checkbox" id="important" class="form-checkbox">
+              <span class="checkbox-custom"></span>
+              <label for="important" class="text-sm font-medium text-gray-700 dark:text-gray-300">Mark as important</label>
+            </div>
+            
+            <button id="addTaskBtn" class="btn-primary w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300 ripple">
+              <i class="fas fa-plus mr-2"></i> Add Task
+            </button>
+          </div>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all duration-300">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">
+              <i class="fas fa-list-check mr-2 text-blue-500"></i> Your Tasks
+            </h2>
+            <div class="flex items-center space-x-2">
+              <span id="taskCount" class="text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">
+                0 tasks
+              </span>
+              <button id="clearAllBtn" class="text-sm font-medium text-red-500 hover:text-red-700 dark:hover:text-red-400 transition">
+                <i class="fas fa-trash mr-1"></i> Clear All
+              </button>
+            </div>
+          </div>
+          
+          <div id="taskList" class="space-y-3">
+            <div id="emptyState" class="empty-state text-center py-10">
+              <i class="fas fa-tasks text-5xl text-gray-300 mb-4"></i>
+              <h3 class="text-xl font-medium text-gray-500 dark:text-gray-400">No tasks yet</h3>
+              <p class="text-gray-400 dark:text-gray-500 mt-1">Add your first task to get started!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4 text-center">
+        <p>Made with <i class="fas fa-heart text-red-400 mx-1"></i> by 
+          <a href="https://github.com/roshanthm" target="_blank" class="font-medium hover:underline">Roshan Thomas</a>
+          <a href="https://github.com/roshanthm" target="_blank" class="ml-2 text-white hover:text-blue-200 transition">
+            <i class="fab fa-github"></i>
+          </a>
+        </p>
+        <p class="mt-2 text-sm text-gray-400 dark:text-gray-500">
+          <i class="fas fa-code mr-1"></i> Built with HTML, CSS & JavaScript
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md w-full mx-4 shadow-xl transform transition-all duration-300 scale-95 opacity-0">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Confirm Action</h3>
+        <button id="closeModal" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <p id="modalMessage" class="text-gray-600 dark:text-gray-300 mb-6">Are you sure you want to perform this action?</p>
+      <div class="flex justify-end space-x-3">
+        <button id="cancelAction" class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          Cancel
+        </button>
+        <button id="confirmAction" class="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition">
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
