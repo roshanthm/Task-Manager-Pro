@@ -52,6 +52,4 @@ Feel free to connect, open issues, or suggest improvements!
 
 ---
 
-## 📄 License
 
-This project is open-source and available under the MIT License.
